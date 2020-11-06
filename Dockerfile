@@ -53,7 +53,6 @@ RUN apt-get install -y --no-install-recommends \
     socat \
     sudo \
     texinfo \
-    tftpd \
     unzip \
     wget \
     xterm \
