@@ -1,0 +1,11 @@
+#!/bin/sh
+
+IMAGE_TAG=petalinux-2019-2:latest
+
+docker build \
+    --build-arg "HOST_UID=$(id -u)" \
+    --build-arg "HOST_GID=$(id -g)" \
+    --build-arg "TIME_ZONE=$(cat /etc/timezone)" \
+    --build-arg "USER_NAME=$(id -un)" \
+    --tag "$IMAGE_TAG" \
+    .

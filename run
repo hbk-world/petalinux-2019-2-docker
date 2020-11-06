@@ -1,0 +1,11 @@
+#!/bin/sh
+
+IMAGE_TAG=petalinux-2019-2:latest
+
+if [ "$(docker images -q $IMAGE_TAG 2> /dev/null)" = "" ]; then
+    echo "$IMAGE_TAG image not found, run ./build to generate it"
+    exit 1
+fi
+
+docker run -it --rm -v ~/:/home/$(id -un) $IMAGE_TAG \
+    /bin/sh -c "source /opt/pkg/petalinux/settings.sh && /bin/bash"
